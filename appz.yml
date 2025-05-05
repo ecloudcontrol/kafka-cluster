@@ -39,5 +39,5 @@ properties:
      vault: KAFKA_CONTROLLER_UUID_2
   KAFKA_CONTROLLER_UUID_3:
      vault: KAFKA_CONTROLLER_UUID_3
-  revision : 9
+  revision : 10
      
