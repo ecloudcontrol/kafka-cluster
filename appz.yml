@@ -1,31 +1,39 @@
-app:
-    name: kafka
-    code: kafka
-    notify: mmushraf@ecloudcontrol.com
-    
-build:
-    version: 4.0
-    env: DEV
-    build_file: none
-    output_files: output/*.zip
-    image_template: kafka-4.0
-    
-deploy:
-    context: tradeideas/DEV
-    type: statefulset
-    replicas: 3
-    port:
-    - 9092
-    - 9093
+    app:
+        name: Kafka
+        code: kafka
+        notify: appzdev@cloudbourne.co
 
-volumes:
-  - claim: kafka-data
-    mount: /appz/data
-    name: data
-    size: 5Gi
+    build:
+        version: 4.0
+        env: DEV
+        build_file: none
+        output_files: output/*.zip
+        image_template: kafka-4.0
 
-properties:
-  KAFKA_REPLICATION_FACTOR: 3
-  KAFKA_MIN_ISR: 2
-  KAFKA_CLUSTER_ID:     
-     vault: KAFKA_CLUSTER_ID
+    deploy:
+        context: tradeideas/DEV
+        type: statefulset
+        replicas: 1
+        ingress: none
+        resources: x-large
+        port:
+        - 9092
+        - 9093
+
+    volumes:
+      - claim: kafka-data
+        mount: /appz/data
+        name: data
+        size: 5Gi
+
+    properties:
+        KAFKA_CLUSTER_ID:
+          vault: KAFKA_CLUSTER_ID
+        MYSQL_REPLICATION_USER: replication
+        MYSQL_REPLICATION_PASSWORD:
+          vault: MYSQL_REPLICATION_PASSWORD
+        MYSQL_TRACKER_PASSWORD:
+          vault: MYSQL_MYDB_PASSWORD
+        MYSQL_ECLOUDCONTROL_PASSWORD:
+          vault: MYSQL_BARS_PASSWORD
+        revision : 8
