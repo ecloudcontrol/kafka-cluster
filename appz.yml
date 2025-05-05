@@ -13,7 +13,7 @@
     deploy:
         context: tradeideas/DEV
         type: statefulset
-        replicas: 1
+        replicas: 3
         ingress: none
         resources: x-large
         port:
