@@ -29,4 +29,3 @@ properties:
   KAFKA_MIN_ISR: 2
   KAFKA_CLUSTER_ID:     
      vault: KAFKA_CLUSTER_ID
-
