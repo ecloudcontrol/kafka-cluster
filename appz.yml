@@ -28,9 +28,9 @@
         size: 5Gi
 
     properties:
-        KAFKA_BROKERS: "0@10.0.1.6:30412,1@10.0.1.6:30716,2@10.0.1.6:31868"
-        KAFKA_REPLICATION_FACTOR: 3
-        KAFKA_MIN_ISR: 2
+        KAFKA_BROKERS: "0@10.0.1.6:31445"
+        KAFKA_REPLICATION_FACTOR: 1
+        KAFKA_MIN_ISR: 1
         KAFKA_CLUSTER_ID:
           vault: KAFKA_CLUSTER_ID
         KAFKA_CONTROLLER_UUID_0:
