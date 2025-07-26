@@ -46,4 +46,4 @@
         KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
         KAFKA_CONTROLLER_QUORUM_VOTERS: "0@kafka-cluster-4-0-0.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:30412,1@kafka-cluster-4-0-1.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:30716,2@kafka-cluster-4-0-2.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:31868"
         EXTERNAL_PORT: "30412"  # Default, overridden by ConfigMap
-        revision : 12
+        revision : 13
