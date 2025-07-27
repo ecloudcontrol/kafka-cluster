@@ -15,10 +15,11 @@
         type: statefulset
         replicas: 3
         #ingress: none
-        #resources: x-large
+        resources: x-large
         port:
         - 9092
         - 9093
+        - 9094
         
 
     volumes:
@@ -28,7 +29,7 @@
         size: 5Gi
 
     properties:
-        KAFKA_BROKERS: "0@kafka-cluster-4-0-0.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:9092,1@kafka-cluster-4-0-1.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:9092,2@kafka-cluster-4-0-2.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:9092"
+        KAFKA_BROKERS: "0@kafka-4-0-0.kafka-4-0:9093,1@kafka-4-0-1.kafka-4-0:9093,2@kafka-4-0-2.kafka-4-0:9093"
         KAFKA_REPLICATION_FACTOR: 3
         KAFKA_MIN_ISR: 2
         KAFKA_CLUSTER_ID:
@@ -39,11 +40,11 @@
           vault: KAFKA_CONTROLLER_UUID_1
         KAFKA_CONTROLLER_UUID_2:
           vault: KAFKA_CONTROLLER_UUID_2
-        KAFKA_BROKER_ID: "0"  # Default, overridden by ConfigMap
-        KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,EXTERNAL://0.0.0.0:${EXTERNAL_PORT},CONTROLLER://0.0.0.0:${EXTERNAL_PORT}"
-        KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka-cluster-4-0-${KAFKA_BROKER_ID}.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:9092,EXTERNAL://10.0.1.5:${EXTERNAL_PORT},CONTROLLER://kafka-cluster-4-0-${KAFKA_BROKER_ID}.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:${EXTERNAL_PORT}"
-        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT"
-        KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
-        KAFKA_CONTROLLER_QUORUM_VOTERS: "0@kafka-cluster-4-0-0.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:30412,1@kafka-cluster-4-0-1.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:30716,2@kafka-cluster-4-0-2.kafka-cluster-4-0.tradeideas-dev.svc.cluster.local:31868"
-        EXTERNAL_PORT: "30412"  # Default, overridden by ConfigMap
-        revision : 13
+        EXTERNAL_IP: 10.0.1.2
+        EXTERNAL_PORT_0: 32001
+        EXTERNAL_PORT_1: 32002
+        EXTERNAL_PORT_2: 32003
+        KAFKA_SASL_USERNAME: admin
+        KAFKA_SASL_PASSWORD: admin
+        KAFKA_SASL_MECHANISM: PLAIN
+        revision : 8
