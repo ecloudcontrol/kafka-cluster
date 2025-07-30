@@ -47,4 +47,4 @@
         KAFKA_SASL_USERNAME: admin
         KAFKA_SASL_PASSWORD: admin
         KAFKA_SASL_MECHANISM: PLAIN
-        revision : 8
+        revision : 9
