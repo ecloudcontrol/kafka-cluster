@@ -44,7 +44,7 @@
         EXTERNAL_PORT_0: 32001
         EXTERNAL_PORT_1: 32002
         EXTERNAL_PORT_2: 32003
-        KAFKA_SASL_USERNAME: admin
-        KAFKA_SASL_PASSWORD: admin
-        KAFKA_SASL_MECHANISM: PLAIN
+        #KAFKA_SASL_USERNAME: admin
+        #KAFKA_SASL_PASSWORD: admin
+        #KAFKA_SASL_MECHANISM: PLAIN
         revision : 12
